@@ -112,8 +112,14 @@ src/features/cancel-booking/
 - **Realtime**: `subscribeTopic()` từ `@/shared/realtime`; sau khi reconnect phải refetch qua REST
   (`onRealtimeReconnect`).
 - **Đường dẫn**: dùng `routes` từ `@/shared/config`, không viết cứng URL.
-- **Giao diện**: màu, bo góc, font lấy từ design tokens ở `src/app/styles/index.css`
-  (`primary`, `brand-accent`, `slot-*` cho lưới giờ…). Không dùng mã màu cứng trong component.
+- **Giao diện**: màu, bo góc, font lấy từ design tokens ở `src/app/styles/index.css`. Không dùng mã màu cứng trong component.
+  - Font Bricolage Grotesque (`@fontsource-variable/bricolage-grotesque`). `primary` là màu mực gần đen, nút chính dùng nó.
+  - Màu mặt sân cho mảng màu và điểm nhấn: `court-green`, `court-green-deep`, `court-mint`, `court-blue`,
+    `court-blue-tone`, `court-blue-deep`, `turf`, `ball` (vàng chanh), `chalk`, `ink-field`.
+  - `slot-*` cho lưới giờ (TV2): ô đang chọn là `slot-selected` (vàng chanh).
+  - Hiệu ứng hiện dần khi cuộn: `Reveal` trong `@/shared/ui`.
+  - Không emoji, gradient, đổ bóng cho thứ nằm yên; chữ trên giao diện viết cho khách, không giải thích cơ chế hệ thống.
+    Chi tiết và lý do: `docs/tv1/2026-10-31-thiet-ke-lai-trang-chu.md`.
   Thêm component shadcn: `npx shadcn@latest add <tên>` (tự vào `src/shared/ui`), rồi export ở `shared/ui/index.ts`.
 - **Mock API**: thêm handler cho module của mình trong `src/app/mocks/`, bám đúng DTO trong OpenAPI.
   Khi backend có endpoint thật, tắt mock bằng `.env.development.local`.

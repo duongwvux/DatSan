@@ -115,9 +115,7 @@ export function SlotPreview() {
       <div className="flex flex-wrap items-start justify-between gap-3 px-5 pt-4">
         <div>
           <p className="text-[0.9375rem] font-semibold">{VENUE.name}</p>
-          <p className="text-[0.8125rem] text-muted-foreground">
-            {VENUE.place} · 4 sân · 80k/giờ, từ 18:00 là 110k/giờ
-          </p>
+          <p className="text-[0.8125rem] text-muted-foreground">{VENUE.place} · 80k/giờ, sau 18:00 là 110k</p>
         </div>
         <div
           role="tablist"
@@ -190,7 +188,7 @@ export function SlotPreview() {
       <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 px-5 text-[0.8125rem] text-muted-foreground">
         <Legend className="border border-input bg-slot-available">Trống</Legend>
         <Legend className="bg-slot-booked">Đã đặt</Legend>
-        <Legend className="bg-slot-held">Có người đang giữ</Legend>
+        <Legend className="bg-slot-held">Đang được giữ</Legend>
       </div>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-b-md bg-muted/60 px-5 py-4">
@@ -201,11 +199,11 @@ export function SlotPreview() {
               {clock(cellStart(selection.end) + 30)}
             </p>
             <p className="text-[0.8125rem] text-muted-foreground" aria-live="polite">
-              {valid ? `${duration} · ${formatVnd(total)}` : 'Tối thiểu 60 phút, chọn thêm một ô liền kề'}
+              {valid ? `${duration} · ${formatVnd(total)}` : 'Đặt ít nhất 1 tiếng'}
             </p>
           </div>
         ) : (
-          <p className="text-[0.9375rem] text-muted-foreground">Chọn một ô trống để bắt đầu</p>
+          <p className="text-[0.9375rem] text-muted-foreground">Chọn giờ bạn muốn chơi</p>
         )}
         <button
           type="button"
@@ -213,7 +211,7 @@ export function SlotPreview() {
           onClick={() => navigate(routes.venueDetail(VENUE.id))}
           className="press rounded-md bg-primary px-5 py-2.5 text-[0.9375rem] font-medium text-primary-foreground hover:bg-court-green hover:text-white disabled:opacity-40"
         >
-          Giữ chỗ 5 phút
+          Đặt sân
         </button>
       </div>
     </div>
@@ -223,7 +221,7 @@ export function SlotPreview() {
 const STATE_LABEL: Record<CellState, string> = {
   free: 'còn trống',
   booked: 'đã đặt',
-  held: 'có người đang giữ',
+  held: 'đang được giữ',
   past: 'đã qua giờ',
 }
 

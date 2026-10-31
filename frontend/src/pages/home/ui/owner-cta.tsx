@@ -41,8 +41,8 @@ export function OwnerCta({ footnote }: { footnote?: ReactNode }) {
             delay={180}
             className="mt-8 max-w-[40ch] text-[length:var(--step-body)] leading-normal"
           >
-            Khách đặt online và khách gọi điện tới quầy dùng chung một lịch, nên một ô giờ không bao giờ bị
-            bán hai lần. Bảng giá giờ vàng, lịch tuần và doanh thu nằm trên cùng một màn hình.
+            Khách đặt online hay gọi điện tới quầy đều vào chung một lịch, hết cảnh trùng sân. Giá giờ vàng,
+            lịch tuần và doanh thu xem ở một chỗ.
           </Reveal>
         </div>
 
@@ -57,7 +57,7 @@ export function OwnerCta({ footnote }: { footnote?: ReactNode }) {
               Đăng ký cơ sở
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              Hồ sơ được quản trị viên duyệt trước khi lên trang.
+              Gửi thông tin sân, được duyệt là khách đặt được ngay.
             </p>
 
             <label htmlFor="owner-venue-name" className="mt-6 block text-sm font-medium">

@@ -16,7 +16,6 @@ export function LoginPage() {
         </Link>
         <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center py-12">
           <h1 className="text-4xl font-semibold tracking-[-0.03em]">Đăng nhập</h1>
-          <p className="mt-2 text-muted-foreground">Để giữ chỗ, thanh toán và xem lại lịch chơi của bạn.</p>
           <div className="mt-8">
             <LoginForm onSuccess={() => navigate(from, { replace: true })} />
           </div>
@@ -34,9 +33,6 @@ export function LoginPage() {
           alt="Sân cầu lông trong nhà, thảm xanh kẻ vạch trắng, cột lưới số 1, một người ngồi nghỉ trên hàng ghế xanh"
           className="absolute inset-0 size-full object-cover"
         />
-        <figcaption className="absolute inset-x-0 bottom-0 bg-ink-field/55 px-12 py-6 text-[0.9375rem] text-white">
-          Một nhà thi đấu cầu lông ở Việt Nam. Ảnh “BLK 0004”, CC0, qua Wikimedia Commons.
-        </figcaption>
       </figure>
     </div>
   )

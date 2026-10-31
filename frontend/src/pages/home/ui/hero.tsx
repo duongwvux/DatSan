@@ -37,8 +37,8 @@ export function Hero() {
             style={delay(420)}
             className="mt-6 max-w-[40ch] text-[length:var(--step-body)] leading-normal sm:mt-8"
           >
-            Sân cầu lông, pickleball và bóng đá mini ở Hà Nội. Chọn ô giờ còn trống, giữ chỗ 5 phút rồi quét
-            mã VietQR, khỏi gọi điện hỏi chủ sân.
+            Cầu lông, pickleball, bóng đá mini khắp Hà Nội. Thấy giờ trống là đặt được ngay, khỏi gọi điện hỏi
+            chủ sân.
           </p>
           <div data-load style={delay(520)} className="mt-8 max-w-md">
             <VenueSearchBar layout="stack" />

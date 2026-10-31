@@ -95,7 +95,7 @@ export function AppFooter() {
           </div>
           <div className="space-y-2 text-chalk/75 md:col-span-4">
             <p className="font-semibold text-chalk">Về DatSan</p>
-            <p>Đồ án môn Công nghệ Web. Sân, giá và lịch trong bản demo là dữ liệu mẫu.</p>
+            <p>Đặt sân cầu lông, pickleball và bóng đá mini ở Hà Nội.</p>
           </div>
         </div>
 

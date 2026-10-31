@@ -9,27 +9,23 @@ import { cn, formatVndShort } from '@/shared/lib'
 import { Button, Reveal } from '@/shared/ui'
 
 /** Ảnh mặt sân cho từng môn (ảnh mở, nguồn ghi ở cuối trang chủ). */
-const SPORT_PHOTOS: Record<SportType, { src: string; alt: string; caption: string; position?: string }> = {
+const SPORT_PHOTOS: Record<SportType, { src: string; alt: string; position?: string }> = {
   BADMINTON: {
     src: '/images/badminton-hall.jpg',
     alt: 'Sân cầu lông trong nhà, thảm xanh kẻ vạch trắng, cột lưới số 1, một người ngồi nghỉ trên hàng ghế xanh',
-    caption: 'Một nhà thi đấu cầu lông ở Việt Nam',
   },
   PICKLEBALL: {
     src: '/images/pickleball-courts.jpg',
     alt: 'Dãy sân pickleball ngoài trời, lòng sân xanh dương, viền xanh lá, lưới căng giữa sân',
-    caption: 'Sân pickleball ngoài trời',
     position: '50% 70%',
   },
   FOOTBALL_5: {
     src: '/images/hanoi-football-pitch.jpg',
     alt: 'Sân bóng cỏ nhân tạo có lưới bao quanh, nhiều nhóm đang đá, phía sau là nhà cao tầng',
-    caption: 'Sân cỏ nhân tạo ở Cầu Giấy, Hà Nội',
   },
   FOOTBALL_7: {
     src: '/images/hanoi-football-pitch.jpg',
     alt: 'Sân bóng cỏ nhân tạo có lưới bao quanh, nhiều nhóm đang đá, phía sau là nhà cao tầng',
-    caption: 'Sân cỏ nhân tạo ở Cầu Giấy, Hà Nội',
   },
 }
 
@@ -108,7 +104,6 @@ export function FeaturedVenues() {
                   />
                 </div>
               </div>
-              <figcaption className="mt-3 text-sm text-white/80">{photo.caption}</figcaption>
             </Reveal>
           </div>
 

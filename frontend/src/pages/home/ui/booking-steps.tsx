@@ -3,7 +3,7 @@ import { cn, formatVnd } from '@/shared/lib'
 import { Reveal } from '@/shared/ui'
 
 /*
- * "Từ ô giờ đến sân": bốn bước của một lượt đặt, xếp thành dải bảng màu từ đậm (cỏ đêm) đến nhạt.
+ * "Đặt là có sân": bốn bước của một lượt đặt, xếp thành dải bảng màu từ đậm (cỏ đêm) đến nhạt.
  * Mỗi bước có một mảnh giao diện mẫu; mã đơn, số tiền và mã check-in là dữ liệu mẫu.
  */
 
@@ -14,25 +14,25 @@ type Step = { name: string; text: string; fill: string; ui: ReactNode }
 const STEPS: Step[] = [
   {
     name: 'Chọn giờ',
-    text: 'Lịch của mỗi sân chia thành ô 30 phút và đổi màu ngay khi có người đặt. Chọn các ô liền nhau trên cùng một sân, từ 1 đến 4 tiếng.',
+    text: 'Xem sân nào còn trống vào giờ bạn rảnh, chọn chơi từ 1 đến 4 tiếng.',
     fill: 'bg-turf text-white',
     ui: <PickUi />,
   },
   {
     name: 'Giữ chỗ',
-    text: 'Bấm giữ chỗ là khung giờ thuộc về bạn trong 5 phút. Hai người bấm cùng lúc thì chỉ một người được, người kia thấy báo ngay.',
+    text: 'Giờ bạn chọn được giữ riêng trong 5 phút, đủ để chuyển khoản. Không lo bị người khác đặt mất.',
     fill: 'bg-court-green-deep text-white',
     ui: <HoldUi />,
   },
   {
     name: 'Chuyển khoản',
-    text: 'Quét mã VietQR bằng app ngân hàng. Số tiền và nội dung đã điền sẵn; tiền vào là đơn tự chuyển sang “đã thanh toán”.',
+    text: 'Quét mã QR bằng app ngân hàng, số tiền và nội dung có sẵn. Tiền vào là bạn nhận xác nhận ngay.',
     fill: 'bg-court-green text-white',
     ui: <PayUi />,
   },
   {
     name: 'Ra sân',
-    text: 'Đọc mã check-in cho chủ sân khi tới nơi. Cần hủy thì hủy trước giờ chơi từ 24 tiếng để được hoàn tiền.',
+    text: 'Tới nơi, đọc mã check-in cho chủ sân là vào chơi. Bận đột xuất thì hủy trước 24 tiếng để được hoàn tiền.',
     fill: 'bg-court-mint text-ink-field',
     ui: <CheckInUi />,
   },
@@ -49,12 +49,12 @@ export function BookingSteps() {
           <h2 id="steps-title" className="text-[length:var(--step-head)] display-type lg:col-span-5">
             <span className="mask-line">
               <Reveal as="span" variant="line">
-                Từ ô giờ
+                Đặt là
               </Reveal>
             </span>
             <span className="mask-line">
               <Reveal as="span" variant="line" delay={90}>
-                đến sân
+                có sân
               </Reveal>
             </span>
           </h2>
@@ -63,8 +63,7 @@ export function BookingSteps() {
             delay={160}
             className="max-w-[46ch] self-end text-[length:var(--step-body)] leading-normal lg:col-span-5 lg:col-start-7"
           >
-            Không phải nhắn tin rồi chờ chủ sân trả lời. Tiền vào là đơn được chốt, và ô giờ đó đổi màu trên
-            lịch của mọi người đang xem.
+            Không phải nhắn tin chờ chủ sân trả lời. Chuyển khoản xong là sân đã là của bạn.
           </Reveal>
         </div>
 
@@ -268,7 +267,7 @@ function PayUi() {
         <dt className="mt-2 text-muted-foreground">Nội dung</dt>
         <dd className="font-semibold tabular">{SAMPLE.code}</dd>
         <dt className="mt-2 text-muted-foreground">Trạng thái</dt>
-        <dd className="font-medium">Chờ tiền vào…</dd>
+        <dd className="font-medium">Chờ thanh toán</dd>
       </dl>
     </UiCard>
   )

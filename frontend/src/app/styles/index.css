@@ -1,122 +1,142 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import '@fontsource/be-vietnam-pro/400.css';
-@import '@fontsource/be-vietnam-pro/500.css';
-@import '@fontsource/be-vietnam-pro/600.css';
-@import '@fontsource/be-vietnam-pro/700.css';
-@import '@fontsource/be-vietnam-pro/800.css';
+@import '@fontsource-variable/bricolage-grotesque/opsz.css';
 
 @custom-variant dark (&:is(.dark *));
 
 /*
  * Design tokens — DatSan
- * primary: xanh sân cỏ (teal/emerald) — hành động chính, thương hiệu
- * accent-brand: cam năng lượng — điểm nhấn, giá, CTA phụ
+ * Màu lấy từ mặt sân: xanh thảm cầu lông, xanh sân pickleball, cỏ nhân tạo ban đêm,
+ * vàng chanh của quả bóng pickleball. Nút chính là màu mực (gần đen), không tô màu thương hiệu.
  * Trạng thái khung giờ (F20) dùng nhóm --slot-* để TV2 tái sử dụng.
  */
 :root {
-  --radius: 0.75rem;
+  --radius: 0.375rem;
 
-  --background: oklch(0.99 0.003 165);
-  --foreground: oklch(0.2 0.02 190);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 190);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 190);
+  --background: #f6f7f5;
+  --foreground: #101411;
+  --card: #ffffff;
+  --card-foreground: #101411;
+  --popover: #ffffff;
+  --popover-foreground: #101411;
 
-  --primary: oklch(0.52 0.11 175);
-  --primary-foreground: oklch(0.99 0.01 170);
-  --secondary: oklch(0.96 0.015 170);
-  --secondary-foreground: oklch(0.3 0.05 180);
-  --muted: oklch(0.965 0.006 170);
-  --muted-foreground: oklch(0.5 0.02 190);
-  --accent: oklch(0.95 0.03 170);
-  --accent-foreground: oklch(0.3 0.06 180);
-  --destructive: oklch(0.58 0.22 27);
-  --border: oklch(0.91 0.01 175);
-  --input: oklch(0.9 0.01 175);
-  --ring: oklch(0.6 0.11 175);
+  --primary: #101411;
+  --primary-foreground: #f6f7f5;
+  --secondary: #ecede8;
+  --secondary-foreground: #101411;
+  --muted: #ecede8;
+  --muted-foreground: #565d58;
+  --accent: #e7e9e3;
+  --accent-foreground: #101411;
+  --destructive: #c4321f;
+  --border: #dfe1db;
+  --input: #d3d6cf;
+  --ring: #1d7a4f;
 
-  --brand-accent: oklch(0.72 0.17 55);
-  --brand-accent-foreground: oklch(0.99 0.01 60);
-  --brand-panel: oklch(0.45 0.09 178);
-  --brand-panel-foreground: oklch(0.99 0.01 170);
-  --success: oklch(0.62 0.15 150);
-  --warning: oklch(0.78 0.15 80);
+  --brand-accent: #d4ef3a;
+  --brand-accent-foreground: #101411;
+  --brand-panel: #1d7a4f;
+  --brand-panel-foreground: #ffffff;
+  --success: #1d7a4f;
+  --warning: #c98a0c;
 
-  --slot-available: oklch(0.96 0.04 165);
-  --slot-selected: var(--primary);
-  --slot-held: oklch(0.93 0.07 85);
-  --slot-booked: oklch(0.9 0.01 190);
-  --slot-past: oklch(0.96 0 0);
+  /* Mặt sân — dùng làm mảng màu cho từng phần của trang chủ và footer */
+  --court-green: #1d7a4f;
+  --court-mint: #a8dcbc;
+  --court-green-deep: #17603d;
+  --court-blue: #27509c;
+  --court-blue-tone: #2d5aa8;
+  --court-blue-deep: #1b3c78;
+  --turf: #0f3d27;
+  --ball: #d4ef3a;
+  --chalk: #eef1ee;
+  --ink-field: #0e1210;
 
-  --chart-1: oklch(0.52 0.11 175);
-  --chart-2: oklch(0.72 0.17 55);
-  --chart-3: oklch(0.6 0.12 250);
-  --chart-4: oklch(0.65 0.15 330);
-  --chart-5: oklch(0.75 0.12 120);
+  --slot-available: #ffffff;
+  --slot-selected: var(--ball);
+  --slot-held: #f3e3a6;
+  --slot-booked: #d7dad3;
+  --slot-past: #eeefeb;
 
-  --sidebar: oklch(0.985 0.004 170);
-  --sidebar-foreground: oklch(0.2 0.02 190);
-  --sidebar-primary: oklch(0.52 0.11 175);
-  --sidebar-primary-foreground: oklch(0.99 0.01 170);
-  --sidebar-accent: oklch(0.95 0.03 170);
-  --sidebar-accent-foreground: oklch(0.3 0.06 180);
-  --sidebar-border: oklch(0.91 0.01 175);
-  --sidebar-ring: oklch(0.6 0.11 175);
+  --chart-1: #1d7a4f;
+  --chart-2: #27509c;
+  --chart-3: #9db51f;
+  --chart-4: #c98a0c;
+  --chart-5: #6b726d;
+
+  --sidebar: #f2f3ef;
+  --sidebar-foreground: #101411;
+  --sidebar-primary: #101411;
+  --sidebar-primary-foreground: #f6f7f5;
+  --sidebar-accent: #e7e9e3;
+  --sidebar-accent-foreground: #101411;
+  --sidebar-border: #dfe1db;
+  --sidebar-ring: #1d7a4f;
+
+  /* Thang chữ cho các trang đọc (trang chủ); màn hình làm việc giữ cỡ chữ mặc định */
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2.25rem, 1.3rem + 3.2vw, 3.75rem);
+  --page-margin: clamp(1rem, 2.2vw, 2rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --t-press: 140ms;
+  --t-hover: 180ms;
+  --t-ui: 240ms;
 }
 
 .dark {
-  --background: oklch(0.17 0.015 200);
-  --foreground: oklch(0.96 0.005 170);
-  --card: oklch(0.21 0.018 200);
-  --card-foreground: oklch(0.96 0.005 170);
-  --popover: oklch(0.21 0.018 200);
-  --popover-foreground: oklch(0.96 0.005 170);
+  --background: #0f1110;
+  --foreground: #eceee9;
+  --card: #171a18;
+  --card-foreground: #eceee9;
+  --popover: #171a18;
+  --popover-foreground: #eceee9;
 
-  --primary: oklch(0.7 0.13 172);
-  --primary-foreground: oklch(0.18 0.03 190);
-  --secondary: oklch(0.27 0.02 195);
-  --secondary-foreground: oklch(0.94 0.01 170);
-  --muted: oklch(0.26 0.015 200);
-  --muted-foreground: oklch(0.7 0.02 185);
-  --accent: oklch(0.29 0.03 185);
-  --accent-foreground: oklch(0.94 0.01 170);
-  --destructive: oklch(0.68 0.19 25);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.6 0.11 175);
+  --primary: #eceee9;
+  --primary-foreground: #0f1110;
+  --secondary: #222624;
+  --secondary-foreground: #eceee9;
+  --muted: #1f2321;
+  --muted-foreground: #a2a9a4;
+  --accent: #252a27;
+  --accent-foreground: #eceee9;
+  --destructive: #e0563f;
+  --border: rgb(255 255 255 / 10%);
+  --input: rgb(255 255 255 / 14%);
+  --ring: #3fa572;
 
-  --brand-accent: oklch(0.76 0.16 58);
-  --brand-accent-foreground: oklch(0.2 0.03 60);
-  --brand-panel: oklch(0.3 0.06 180);
-  --brand-panel-foreground: oklch(0.97 0.01 170);
-  --success: oklch(0.7 0.15 150);
-  --warning: oklch(0.8 0.14 80);
+  --brand-panel: #1d7a4f;
+  --success: #3fa572;
+  --warning: #e0a826;
 
-  --slot-available: oklch(0.3 0.05 170);
-  --slot-held: oklch(0.4 0.08 80);
-  --slot-booked: oklch(0.32 0.01 200);
-  --slot-past: oklch(0.24 0.005 200);
+  --slot-available: #171a18;
+  --slot-held: #5a4a12;
+  --slot-booked: #3a3f3b;
+  --slot-past: #1d201e;
 
-  --sidebar: oklch(0.2 0.017 200);
-  --sidebar-foreground: oklch(0.96 0.005 170);
-  --sidebar-primary: oklch(0.7 0.13 172);
-  --sidebar-primary-foreground: oklch(0.18 0.03 190);
-  --sidebar-accent: oklch(0.29 0.03 185);
-  --sidebar-accent-foreground: oklch(0.94 0.01 170);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.6 0.11 175);
+  --sidebar: #131614;
+  --sidebar-foreground: #eceee9;
+  --sidebar-primary: #eceee9;
+  --sidebar-primary-foreground: #0f1110;
+  --sidebar-accent: #252a27;
+  --sidebar-accent-foreground: #eceee9;
+  --sidebar-border: rgb(255 255 255 / 10%);
+  --sidebar-ring: #3fa572;
 }
 
 @theme inline {
-  --font-sans: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-xl: calc(var(--radius) + 2px);
+  --radius-2xl: calc(var(--radius) + 4px);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -143,6 +163,17 @@
   --color-brand-panel-foreground: var(--brand-panel-foreground);
   --color-success: var(--success);
   --color-warning: var(--warning);
+
+  --color-court-green: var(--court-green);
+  --color-court-mint: var(--court-mint);
+  --color-court-green-deep: var(--court-green-deep);
+  --color-court-blue: var(--court-blue);
+  --color-court-blue-tone: var(--court-blue-tone);
+  --color-court-blue-deep: var(--court-blue-deep);
+  --color-turf: var(--turf);
+  --color-ball: var(--ball);
+  --color-chalk: var(--chalk);
+  --color-ink-field: var(--ink-field);
 
   --color-slot-available: var(--slot-available);
   --color-slot-selected: var(--slot-selected);
@@ -175,15 +206,167 @@
   }
   body {
     @apply bg-background font-sans text-foreground antialiased;
-    font-feature-settings: 'ss01', 'cv11';
+    font-kerning: normal;
   }
   h1,
   h2,
   h3 {
     @apply tracking-tight text-balance;
   }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--ball);
+    color: var(--ink-field);
+  }
 }
 
+/* Một cặp lề cho mọi trang: header, nội dung và footer thẳng hàng */
 @utility container-page {
-  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  @apply mx-auto w-full max-w-[1760px];
+  padding-inline: var(--page-margin);
+}
+
+/* Chữ cỡ lớn: chữ hoa tiếng Việt có dấu chồng nên khoảng dòng không xuống dưới 0.98 */
+@utility display-type {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Chuyển động. Mọi trạng thái ẩn chỉ áp dụng khi có class .js (đặt trong index.html)
+ * và người dùng không bật giảm chuyển động, nên nội dung luôn hiện nếu script lỗi.
+ */
+
+/* Dòng chữ trượt lên từ sau mép của chính nó; chừa khoảng trên cho dấu mũ, dấu thanh và khoảng dưới
+   cho dấu nặng (ặ, ộ) cùng các nét thòng (g, y, p) của tiếng Việt */
+.mask-line {
+  display: block;
+  overflow: clip;
+  padding-block: 0.2em 0.2em;
+  margin-block: -0.2em -0.2em;
+}
+.mask-line > span {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-load-line] {
+    transform: translateY(190%);
+    animation: rise-line 900ms var(--ease-expo) forwards;
+    animation-delay: calc(120ms + var(--i, 0) * 100ms);
+  }
+  .js [data-load] {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: rise-in 600ms var(--ease-out) forwards;
+    animation-delay: var(--d, 400ms);
+  }
+  .js [data-shutter] {
+    clip-path: inset(100% 0 0 0);
+    animation: shutter-open 1100ms var(--ease-in-out) 180ms forwards;
+  }
+  .js [data-shutter] [data-settle] {
+    transform: scale(1.08) translateY(24px);
+    animation: settle 1400ms var(--ease-expo) 260ms forwards;
+  }
+
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 700ms var(--ease-out) var(--d, 0ms),
+      transform 900ms var(--ease-expo) var(--d, 0ms);
+  }
+  .js [data-reveal='line'] {
+    opacity: 1;
+    transform: translateY(190%);
+  }
+  .js [data-reveal='stage'] {
+    opacity: 1;
+    transform: none;
+  }
+  /* Các khối chữ ở footer trồi lên từ mép dưới của SVG, lần lượt từng khối */
+  .js .footer-mark g {
+    transform: translateY(100%);
+    transform-box: fill-box;
+    transition: transform 900ms var(--ease-expo) calc(var(--i, 0) * 70ms);
+  }
+  .js .is-in > .footer-mark g {
+    transform: none;
+  }
+  .js [data-reveal='picture'] {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 101% 0);
+    transition: clip-path 1000ms var(--ease-in-out) var(--d, 0ms);
+  }
+  .js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+  .js [data-reveal='picture'].is-in {
+    clip-path: inset(0);
+  }
+
+  /* Ảnh trôi nhẹ theo thanh cuộn, trong khung lớn hơn nó 10% */
+  @supports (animation-timeline: view()) {
+    [data-drift] {
+      animation: drift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+
+  .press {
+    transition:
+      transform var(--t-press) var(--ease-out),
+      background-color var(--t-hover) ease,
+      color var(--t-hover) ease;
+  }
+  .press:active {
+    transform: scale(0.97);
+  }
+}
+
+@keyframes rise-line {
+  to {
+    transform: none;
+  }
+}
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes shutter-open {
+  to {
+    clip-path: inset(0);
+  }
+}
+@keyframes settle {
+  to {
+    transform: none;
+  }
+}
+@keyframes drift {
+  from {
+    transform: translateY(-4%);
+  }
+  to {
+    transform: translateY(4%);
+  }
+}
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
 }

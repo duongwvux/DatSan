@@ -44,21 +44,21 @@ export function AppHeader() {
   const logout = useLogout()
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container-page flex h-16 items-center gap-6">
+    <header className="relative z-40 bg-background">
+      <div className="container-page flex h-16 items-center gap-8">
         <Link to={routes.home} aria-label="DatSan — Trang chủ">
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
                 cn(
-                  'rounded-md px-3 py-2 text-sm font-medium transition-colors',
-                  isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground',
+                  'py-2 text-base underline-offset-[0.3em] transition-colors hover:underline',
+                  isActive ? 'underline decoration-2' : 'text-foreground/80 hover:text-foreground',
                 )
               }
             >
@@ -75,7 +75,7 @@ export function AppHeader() {
                 <Button variant="ghost" className="h-10 gap-2 px-2">
                   <Avatar className="size-8">
                     {user.avatarUrl && <AvatarImage src={user.avatarUrl} alt="" />}
-                    <AvatarFallback className="bg-primary text-xs text-primary-foreground">
+                    <AvatarFallback className="bg-court-green text-xs text-white">
                       {initials(user.fullName)}
                     </AvatarFallback>
                   </Avatar>

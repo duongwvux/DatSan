@@ -50,7 +50,7 @@ Mỗi người làm **cả backend lẫn frontend** cho module của mình (chia
 
 - [ ] **Cả nhóm:** chốt danh sách chức năng, vẽ use case, thống nhất quy trình Git và quy ước API (mục 6)
 - [ ] **Cả nhóm:** mỗi người viết đặc tả OpenAPI cho các API thuộc module của mình; TV5 gộp và tổ chức buổi duyệt
-- [ ] **TV1:** wireframe màn hình người chơi trên Figma, chọn màu và font; khởi tạo dự án React + Vite + TypeScript, Tailwind, shadcn/ui, React Router, TanStack Query, Axios client có interceptor gắn JWT _(khung dự án đã khởi tạo trong `frontend/`, gồm cả MSW và design tokens; còn wireframe Figma)_
+- [ ] **TV1:** wireframe màn hình người chơi trên Figma, chọn màu và font; khởi tạo dự án React + Vite + TypeScript, Tailwind, shadcn/ui, React Router, TanStack Query, Axios client có interceptor gắn JWT _(khung dự án đã khởi tạo trong `frontend/`, gồm cả MSW và design tokens; màu và font đã chốt, xem `docs/tv1/2026-10-31-thiet-ke-lai-trang-chu.md`; còn wireframe Figma)_
 - [ ] **TV2:** thiết kế ERD (User, Venue, Court, PriceRule, Booking, Payment, Review, Match, Notification); viết script Flyway `V1__init.sql`; phân tích bài toán tranh chấp khung giờ và chọn cơ chế khóa
 - [ ] **TV3:** đăng ký SePay sandbox và VNPay sandbox ngay (phải chờ kích hoạt); tìm hiểu định dạng VietQR; vẽ sequence diagram luồng thanh toán
 - [ ] **TV4:** wireframe màn hình chủ sân và admin; đặc tả quy tắc tính giá (giờ cao điểm, cuối tuần, ngày lễ)

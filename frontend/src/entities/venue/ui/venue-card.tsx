@@ -10,13 +10,12 @@ export function VenueCard({ venue, className }: { venue: VenueSummary; className
   return (
     <Card
       className={cn(
-        'group gap-0 overflow-hidden p-0 transition-all hover:-translate-y-0.5 hover:shadow-lg',
+        'group gap-0 overflow-hidden p-0 shadow-none transition-colors hover:border-foreground/30',
         className,
       )}
     >
       <Link to={routes.venueDetail(venue.id)} className="focus-visible:outline-none">
         <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/25 to-brand-accent/25" />
           {venue.coverImageUrl && (
             <img
               src={venue.coverImageUrl}
@@ -30,8 +29,8 @@ export function VenueCard({ venue, className }: { venue: VenueSummary; className
           )}
           <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
             {venue.sports.map((sport) => (
-              <Badge key={sport} variant="secondary" className="bg-background/90 backdrop-blur">
-                {SPORTS[sport].emoji} {SPORTS[sport].label}
+              <Badge key={sport} variant="secondary" className="bg-background">
+                {SPORTS[sport].label}
               </Badge>
             ))}
           </div>
@@ -47,7 +46,7 @@ export function VenueCard({ venue, className }: { venue: VenueSummary; className
             <h3 className="line-clamp-1 font-semibold">{venue.name}</h3>
             {venue.ratingAverage !== null && (
               <span className="flex shrink-0 items-center gap-1 text-sm font-medium">
-                <Star className="size-4 fill-brand-accent text-brand-accent" />
+                <Star className="size-4 fill-current" />
                 {venue.ratingAverage.toFixed(1)}
                 <span className="font-normal text-muted-foreground">({venue.ratingCount})</span>
               </span>

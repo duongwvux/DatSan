@@ -15,8 +15,7 @@ export function LoginPage() {
           <Logo />
         </Link>
         <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center py-12">
-          <h1 className="text-3xl font-bold">Chào mừng trở lại</h1>
-          <p className="mt-2 text-muted-foreground">Đăng nhập để đặt sân và theo dõi lịch chơi.</p>
+          <h1 className="text-4xl font-semibold tracking-[-0.03em]">Đăng nhập</h1>
           <div className="mt-8">
             <LoginForm onSuccess={() => navigate(from, { replace: true })} />
           </div>
@@ -28,22 +27,13 @@ export function LoginPage() {
           </p>
         </div>
       </div>
-      <div className="relative hidden overflow-hidden bg-brand-panel lg:block">
-        <div
-          aria-hidden
-          className="absolute -top-20 -right-20 size-96 rounded-full bg-brand-accent/40 blur-3xl"
+      <figure className="relative hidden overflow-clip bg-court-green lg:block">
+        <img
+          src="/images/badminton-hall.jpg"
+          alt="Sân cầu lông trong nhà, thảm xanh kẻ vạch trắng, cột lưới số 1, một người ngồi nghỉ trên hàng ghế xanh"
+          className="absolute inset-0 size-full object-cover"
         />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:56px_56px] opacity-10"
-        />
-        <div className="relative flex h-full flex-col justify-end p-12 text-brand-panel-foreground">
-          <blockquote className="max-w-md text-2xl leading-snug font-semibold">
-            “Tối thứ 6 nào nhóm mình cũng có sân, chỉ mất 30 giây.”
-          </blockquote>
-          <p className="mt-4 text-brand-panel-foreground/70">Nhóm cầu lông Cầu Giấy</p>
-        </div>
-      </div>
+      </figure>
     </div>
   )
 }

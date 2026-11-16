@@ -1,4 +1,4 @@
-package vn.datsan.common.exception;
+package vn.datsan.backend.common.exception;
 
 import java.time.Instant;
 import java.util.List;

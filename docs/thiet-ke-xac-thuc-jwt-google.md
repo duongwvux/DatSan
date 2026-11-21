@@ -2,7 +2,7 @@
 
 Ngày: 01/10/2026. Phạm vi: thiết kế logic, chưa triển khai mã nguồn.
 
-Tài liệu này cụ thể hóa F01–F05, UC01–UC05, UC26 và Q01/Q02/Q13/Q14/Q17 của `use-case-api.md`. Các lựa chọn bổ sung dưới đây là **đề xuất thiết kế**, chưa phải quyết định đã được nhóm duyệt. Không thay đổi yêu cầu bắt buộc trong `dac-ta-chuc-nang.md`.
+Tài liệu này cụ thể hóa F01–F05, F81, UC01, UC02, UC11 và Q01/Q02/Q13/Q14/Q17 của `use-case-api.md`. Các lựa chọn bổ sung dưới đây là **đề xuất thiết kế**, chưa phải quyết định đã được nhóm duyệt. Không thay đổi yêu cầu bắt buộc trong `dac-ta-chuc-nang.md`.
 
 ## 1. Cơ sở và hiện trạng đã đọc
 
@@ -51,7 +51,7 @@ flowchart LR
 | JWT claims | `iss`, `aud`, `sub` là UUID User, `sid` là phiên, `iat`, `exp`, `jti`; không chứa password, token Google, điện thoại hay giấy tờ |
 | Ký JWT | Đề xuất RS256, private key ở backend/secret store; verifier cố định thuật toán, issuer, audience; có `kid` để thay khóa. Không sinh lại khóa mỗi lần khởi động |
 | Quyền hiện hành | Đọc roles, emailVerified và trạng thái User từ DB ở request được bảo vệ; JWT không là nguồn duy nhất cho quyền |
-| Thu hồi tức thời | Kiểm tra `sid` còn hiệu lực và User không bị khóa ở mỗi request được bảo vệ. Chấp nhận truy vấn DB để đơn giản và đáp ứng UC26 |
+| Thu hồi tức thời | Kiểm tra `sid` còn hiệu lực và User không bị khóa ở mỗi request được bảo vệ. Chấp nhận truy vấn DB để đơn giản và đáp ứng UC11 (khóa tài khoản) |
 | Chưa xác thực email | Cho đăng nhập và xem/sửa hồ sơ; không được tạo đơn hoặc nộp hồ sơ OWNER. Phần chặn nộp OWNER là đề xuất bổ sung |
 | Vai trò mới | Luôn PLAYER; OWNER chỉ được thêm sau duyệt, giữ PLAYER; ADMIN cấp qua quy trình nội bộ |
 | Deploy | Cùng origin qua reverse proxy; dev qua Vite. Không cần CORS cho đường gọi này |

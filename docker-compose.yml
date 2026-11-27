@@ -1,0 +1,40 @@
+# Chạy cả DB + backend:   docker compose up -d --build
+# Chỉ chạy DB (backend chạy từ IDE): docker compose up -d db
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: datsan
+      POSTGRES_USER: datsan
+      POSTGRES_PASSWORD: datsan
+    ports:
+      - "5432:5432"
+    volumes:
+      - datsan-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U datsan -d datsan"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/datsan
+      DB_USERNAME: datsan
+      DB_PASSWORD: datsan
+      # "dev": cookie không Secure để chạy qua HTTP localhost. Thêm ",google" để bật Google login.
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
+      APP_PUBLIC_BASE_URL: ${APP_PUBLIC_BASE_URL:-http://localhost:5173}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      # Để trống: sinh khóa JWT tạm mỗi lần khởi động (token cũ mất hiệu lực khi restart).
+      JWT_PRIVATE_KEY_LOCATION: ${JWT_PRIVATE_KEY_LOCATION:-}
+    ports:
+      - "8080:8080"
+
+volumes:
+  datsan-db:
